@@ -51,45 +51,57 @@ canvas#bg{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0}
 @keyframes bobble{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
 .scroll-hint svg{width:16px;height:16px;stroke:#3f3f46;fill:none;stroke-width:2}
 
-/* ===== PAGE 2: EVERYTHING ELSE ===== */
-.p2{z-index:1;position:relative;display:flex;align-items:flex-start;padding:48px 0}
-.p2-inner{width:100%;max-width:1200px;margin:0 auto;padding:0 48px;display:grid;grid-template-columns:1fr 1fr;gap:32px;height:calc(100vh - 96px);overflow:hidden}
+/* ===== PAGE 2: DASHBOARD ===== */
+.p2{z-index:1;position:relative}
+.p2-grid{max-width:1200px;margin:0 auto;padding:20px 32px 48px;display:grid;grid-template-columns:2fr 1fr;gap:12px;height:calc(100vh - 48px)}
 
-/* Left column */
-.p2-left{display:flex;flex-direction:column;gap:20px;overflow-y:auto;padding-right:16px;scrollbar-width:none}
-.p2-left::-webkit-scrollbar{display:none}
+/* Glass panels */
+.panel{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:16px 20px;overflow:hidden;transition:border-color 0.3s}
+.panel:hover{border-color:rgba(255,255,255,0.12)}
+.panel-head{font-size:0.65rem;text-transform:uppercase;letter-spacing:0.15em;color:#71717a;font-weight:600;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.panel-dot{width:7px;height:7px;border-radius:50%;display:inline-block}
 
-.block-title{font-size:0.6rem;text-transform:uppercase;letter-spacing:0.2em;color:#818cf8;font-weight:600;margin-bottom:8px}
-.cmd-compact{display:grid;grid-template-columns:1fr 1fr;gap:4px}
-.cc{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.04);border-radius:6px;padding:8px 10px;font-size:0.72rem;transition:all 0.2s}
-.cc:hover{border-color:rgba(129,140,248,0.3);background:rgba(129,140,248,0.04)}
-.cc code{font-family:'JetBrains Mono',monospace;color:#818cf8;font-size:0.7rem}
-.cc span{display:block;color:#52525b;font-size:0.62rem;margin-top:2px}
+/* Command chips */
+.cmd-flow{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-family:var(--mono);font-size:0.72rem;padding:5px 12px;background:rgba(129,140,248,0.08);border:1px solid rgba(129,140,248,0.15);border-radius:100px;color:#a5b4fc;transition:all 0.2s;cursor:default}
+.chip:hover{background:rgba(129,140,248,0.15);border-color:rgba(129,140,248,0.4);color:#c7d2fe;transform:translateY(-1px)}
 
-/* Features compact */
-.feat-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
-.fr{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.04);border-radius:8px;padding:14px;transition:all 0.3s}
-.fr:hover{border-color:rgba(129,140,248,0.2)}
-.fr h4{font-size:0.8rem;font-weight:600;margin-bottom:4px}
-.fr p{font-size:0.65rem;color:#52525b;line-height:1.5}
+/* Built with numbers */
+.built-nums{display:flex;gap:20px;justify-content:center;padding:8px 0}
+.built-nums div{text-align:center}
+.built-nums strong{display:block;font-size:1.6rem;font-weight:800;background:linear-gradient(135deg,#e4e4e7,#71717a);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.built-nums small{font-size:0.6rem;color:#52525b;text-transform:uppercase;letter-spacing:0.1em}
 
-/* Right column */
-.p2-right{display:flex;flex-direction:column;gap:20px;overflow-y:auto;scrollbar-width:none}
-.p2-right::-webkit-scrollbar{display:none}
-
-/* Compact table */
-.tbl{width:100%;border-collapse:collapse;font-size:0.72rem}
-.tbl th{text-align:left;padding:6px 10px;font-size:0.6rem;text-transform:uppercase;letter-spacing:0.08em;color:#818cf8;border-bottom:1px solid rgba(255,255,255,0.06);font-weight:600}
-.tbl td{padding:5px 10px;color:#71717a;border-bottom:1px solid rgba(255,255,255,0.02)}
+/* Table */
+.tbl{width:100%;border-collapse:collapse;font-size:0.75rem}
+.tbl th{text-align:left;padding:6px 12px;font-size:0.6rem;text-transform:uppercase;letter-spacing:0.08em;color:#52525b;border-bottom:1px solid rgba(255,255,255,0.06);font-weight:600}
+.tbl td{padding:5px 12px;color:#71717a;border-bottom:1px solid rgba(255,255,255,0.02)}
 .tbl tr:hover td{color:#e4e4e7}
+.pill{font-size:0.65rem;padding:2px 8px;border-radius:100px;font-weight:600}
+.pill.g{background:rgba(74,222,128,0.1);color:#4ade80}
+.pill.y{background:rgba(251,191,36,0.1);color:#fbbf24}
+.pill.r{background:rgba(248,113,113,0.1);color:#f87171}
 
-/* Calc list */
-.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px}
-.cg{font-size:0.68rem;padding:5px 8px;background:rgba(255,255,255,0.02);border-radius:4px;display:flex;justify-content:space-between}
-.cg span{color:#52525b;font-family:'JetBrains Mono',monospace;font-size:0.6rem}
+/* Capability bars */
+.cap-list{display:flex;flex-direction:column;gap:10px}
+.cap{position:relative}
+.cap-bar{height:3px;border-radius:2px;display:block;margin-bottom:4px;opacity:0.6}
+.cap-name{font-size:0.78rem;font-weight:600;display:block}
+.cap-detail{font-size:0.62rem;color:#52525b}
+
+/* Calculator pills */
+.calc-pills{display:flex;flex-wrap:wrap;gap:5px}
+.cpill{font-size:0.7rem;padding:4px 10px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:6px;color:#a1a1aa;transition:all 0.2s}
+.cpill:hover{border-color:rgba(56,189,248,0.3);color:#e4e4e7}
+.cpill.hl{border-color:rgba(56,189,248,0.2);color:#38bdf8;background:rgba(56,189,248,0.05)}
+
+/* Source tags */
+.src-tags{display:flex;flex-wrap:wrap;gap:6px}
+.stag{font-size:0.68rem;padding:4px 10px;background:rgba(168,85,247,0.06);border:1px solid rgba(168,85,247,0.12);border-radius:6px;color:#a78bfa}
+.stag small{color:#7c3aed;margin-left:4px}
 
 /* Footer bar */
-.p2-footer{position:absolute;bottom:0;left:0;right:0;padding:12px 48px;display:flex;justify-content:space-between;align-items:center;font-size:0.7rem;color:#3f3f46;border-top:1px solid rgba(255,255,255,0.03);background:rgba(0,0,0,0.5);backdrop-filter:blur(10px);z-index:2}
+.p2-footer{position:absolute;bottom:0;left:0;right:0;padding:10px 32px;display:flex;justify-content:space-between;align-items:center;font-size:0.7rem;color:#3f3f46;border-top:1px solid rgba(255,255,255,0.03);background:rgba(0,0,0,0.5);backdrop-filter:blur(10px);z-index:2}
 .p2-footer a{color:#818cf8}
 
 @media(max-width:900px){
@@ -150,96 +162,80 @@ scroll
 
 <!-- PAGE 2 -->
 <div class="page p2">
-<div class="p2-inner">
+<div class="p2-grid">
 
-<!-- LEFT COLUMN -->
-<div class="p2-left">
-<div>
-<div class="block-title">Capabilities</div>
-<div class="feat-row">
-<div class="fr"><h4>Validate</h4><p>15-criteria scoring, tar pit detection, live market research</p></div>
-<div class="fr"><h4>Model</h4><p>14 calculators: CAC, LTV, runway, valuation, burn multiple, Rule of X</p></div>
-<div class="fr"><h4>Pitch</h4><p>Sequoia 12-slide deck with live competitor data</p></div>
-<div class="fr"><h4>Compete</h4><p>Web scraping competitors: pricing, funding, features, positioning</p></div>
-<div class="fr"><h4>Operate</h4><p>OKRs, EOS L10, Rocks, 1-on-1s, board prep, decision logs</p></div>
-<div class="fr"><h4>Decide</h4><p>12 frameworks: Type 1/2, Pre-Mortem, RAPID, Wartime/Peacetime</p></div>
+<!-- TOP ROW: 3 glass panels -->
+<div class="panel" style="grid-column:1/3">
+<div class="panel-head"><span class="panel-dot" style="background:#818cf8"></span>19 Commands</div>
+<div class="cmd-flow">
+<span class="chip">validate</span><span class="chip">score</span><span class="chip">calc</span><span class="chip">spreadsheet</span><span class="chip">pitch-deck</span><span class="chip">presentation</span><span class="chip">compete</span><span class="chip">market-size</span><span class="chip">lean-canvas</span><span class="chip">gtm</span><span class="chip">fundraise</span><span class="chip">board-update</span><span class="chip">okrs</span><span class="chip">metrics</span><span class="chip">persona</span><span class="chip">interview</span><span class="chip">hiring</span><span class="chip">legal</span><span class="chip">decision</span>
 </div>
 </div>
 
-<div>
-<div class="block-title">19 Commands</div>
-<div class="cmd-compact">
-<div class="cc"><code>/ceo-validate</code><span>Full validation + score</span></div>
-<div class="cc"><code>/ceo-score</code><span>Quick viability check</span></div>
-<div class="cc"><code>/ceo-calc</code><span>Financial calculators</span></div>
-<div class="cc"><code>/ceo-spreadsheet</code><span>Generate .xlsx</span></div>
-<div class="cc"><code>/ceo-pitch-deck</code><span>Investor deck</span></div>
-<div class="cc"><code>/ceo-presentation</code><span>HTML slides</span></div>
-<div class="cc"><code>/ceo-compete</code><span>Competitor analysis</span></div>
-<div class="cc"><code>/ceo-market-size</code><span>TAM/SAM/SOM</span></div>
-<div class="cc"><code>/ceo-lean-canvas</code><span>Business plan</span></div>
-<div class="cc"><code>/ceo-gtm</code><span>Go-to-market</span></div>
-<div class="cc"><code>/ceo-fundraise</code><span>Round planning</span></div>
-<div class="cc"><code>/ceo-board-update</code><span>Investor email</span></div>
-<div class="cc"><code>/ceo-okrs</code><span>Goals + Rocks</span></div>
-<div class="cc"><code>/ceo-metrics</code><span>Track over time</span></div>
-<div class="cc"><code>/ceo-persona</code><span>Customer personas</span></div>
-<div class="cc"><code>/ceo-interview</code><span>Mom Test scripts</span></div>
-<div class="cc"><code>/ceo-hiring</code><span>JDs + scorecards</span></div>
-<div class="cc"><code>/ceo-legal</code><span>Legal checklists</span></div>
-<div class="cc" style="grid-column:span 2"><code>/ceo-decision</code><span>Bezos Type 1/2, Pre-Mortem, Inversion, RAPID, Second-Order Thinking</span></div>
-</div>
+<div class="panel">
+<div class="panel-head"><span class="panel-dot" style="background:#4ade80"></span>Built with</div>
+<div class="built-nums">
+<div><strong>~50</strong><small>agents</small></div>
+<div><strong>200+</strong><small>pages</small></div>
+<div><strong>60K</strong><small>words</small></div>
 </div>
 </div>
 
-<!-- RIGHT COLUMN -->
-<div class="p2-right">
-<div>
-<div class="block-title">Industry Benchmarks (13 verticals)</div>
+<!-- MIDDLE ROW: benchmarks + capabilities -->
+<div class="panel" style="grid-column:1/3">
+<div class="panel-head"><span class="panel-dot" style="background:#f472b6"></span>Industry Benchmarks</div>
 <table class="tbl">
 <tr><th>Industry</th><th>Success</th><th>CAC</th><th>LTV</th><th>PMF</th></tr>
-<tr><td>SaaS B2B</td><td>62%</td><td>$200-500</td><td>$1.5-5K</td><td>10-14mo</td></tr>
-<tr><td>FinTech</td><td>58%</td><td>$50-200</td><td>$500-2K</td><td>12-18mo</td></tr>
-<tr><td>HealthTech</td><td>55%</td><td>$100-400</td><td>$1-5K</td><td>14-24mo</td></tr>
-<tr><td>EdTech</td><td>52%</td><td>$50-150</td><td>$300-1.5K</td><td>10-16mo</td></tr>
-<tr><td>E-commerce</td><td>48%</td><td>$30-100</td><td>$150-500</td><td>6-12mo</td></tr>
-<tr><td>AI/ML</td><td>~45%</td><td>$50-500</td><td>$500-5K</td><td>8-18mo</td></tr>
-<tr><td>Marketplace</td><td>42%</td><td>$20-80</td><td>$200-800</td><td>12-24mo</td></tr>
-<tr><td>Mobile App</td><td>35%</td><td>$2-10</td><td>$10-50</td><td>8-16mo</td></tr>
+<tr><td>SaaS B2B</td><td><span class="pill g">62%</span></td><td>$200-500</td><td>$1.5-5K</td><td>10-14mo</td></tr>
+<tr><td>FinTech</td><td><span class="pill g">58%</span></td><td>$50-200</td><td>$500-2K</td><td>12-18mo</td></tr>
+<tr><td>HealthTech</td><td><span class="pill y">55%</span></td><td>$100-400</td><td>$1-5K</td><td>14-24mo</td></tr>
+<tr><td>AI/ML</td><td><span class="pill y">~45%</span></td><td>$50-500</td><td>$500-5K</td><td>8-18mo</td></tr>
+<tr><td>Marketplace</td><td><span class="pill r">42%</span></td><td>$20-80</td><td>$200-800</td><td>12-24mo</td></tr>
+<tr><td>Mobile App</td><td><span class="pill r">35%</span></td><td>$2-10</td><td>$10-50</td><td>8-16mo</td></tr>
 </table>
 </div>
 
-<div>
-<div class="block-title">14 Financial Calculators</div>
-<div class="calc-grid">
-<div class="cg">ROI <span>returns/invest</span></div>
-<div class="cg">TAM/SAM/SOM <span>market size</span></div>
-<div class="cg">Startup Costs <span>launch budget</span></div>
-<div class="cg">Funding <span>raise amount</span></div>
-<div class="cg">Break-Even <span>profitability</span></div>
-<div class="cg">Runway <span>months left</span></div>
-<div class="cg">Valuation <span>company worth</span></div>
-<div class="cg">CAC <span>cost/customer</span></div>
-<div class="cg">LTV <span>lifetime value</span></div>
-<div class="cg">Equity <span>dilution model</span></div>
-<div class="cg">Magic Number <span>sales efficiency</span></div>
-<div class="cg">Burn Multiple <span>spend/ARR</span></div>
-<div class="cg">Quick Ratio <span>growth health</span></div>
-<div class="cg">Rule of X <span>Bessemer 2.0</span></div>
+<div class="panel">
+<div class="panel-head"><span class="panel-dot" style="background:#fbbf24"></span>Capabilities</div>
+<div class="cap-list">
+<div class="cap"><span class="cap-bar" style="background:linear-gradient(90deg,#818cf8,#6366f1);width:100%"></span><span class="cap-name">Idea Validation</span><span class="cap-detail">15-criteria scoring + tar pit detection</span></div>
+<div class="cap"><span class="cap-bar" style="background:linear-gradient(90deg,#4ade80,#22c55e);width:90%"></span><span class="cap-name">Financial Modeling</span><span class="cap-detail">14 calculators + .xlsx export</span></div>
+<div class="cap"><span class="cap-bar" style="background:linear-gradient(90deg,#f472b6,#ec4899);width:85%"></span><span class="cap-name">Pitch Decks</span><span class="cap-detail">Sequoia format + live research</span></div>
+<div class="cap"><span class="cap-bar" style="background:linear-gradient(90deg,#fbbf24,#f59e0b);width:80%"></span><span class="cap-name">Competitive Intel</span><span class="cap-detail">Live web scraping + positioning</span></div>
+<div class="cap"><span class="cap-bar" style="background:linear-gradient(90deg,#a855f7,#9333ea);width:75%"></span><span class="cap-name">CEO Operations</span><span class="cap-detail">OKRs, EOS, cadences, board prep</span></div>
+<div class="cap"><span class="cap-bar" style="background:linear-gradient(90deg,#38bdf8,#0ea5e9);width:70%"></span><span class="cap-name">Decision Frameworks</span><span class="cap-detail">Bezos, Pre-Mortem, RAPID, 9 more</span></div>
 </div>
 </div>
 
-<div>
-<div class="block-title">Data Sources</div>
-<div style="font-size:0.68rem;color:#52525b;line-height:1.8">
-IdeaProof.io (63 pages) / Carta State of Startups 2025 / Bessemer Cloud 100 / a16z Growth Metrics / First Page Sage CAC 2026 / YC Startup School / Sequoia Arc PMF / SaaStr / Lenny's Newsletter / Kyle Poyar-OpenView / First Round Review / 200+ total pages / ~50 agents / 1 session
+<!-- BOTTOM ROW: calculators + sources -->
+<div class="panel" style="grid-column:1/2">
+<div class="panel-head"><span class="panel-dot" style="background:#38bdf8"></span>14 Calculators</div>
+<div class="calc-pills">
+<span class="cpill">ROI</span><span class="cpill">TAM/SAM/SOM</span><span class="cpill">Startup Costs</span><span class="cpill">Funding</span><span class="cpill">Break-Even</span><span class="cpill">Runway</span><span class="cpill">Valuation</span><span class="cpill">CAC</span><span class="cpill">LTV</span><span class="cpill">Equity</span><span class="cpill hl">Magic Number</span><span class="cpill hl">Burn Multiple</span><span class="cpill hl">Quick Ratio</span><span class="cpill hl">Rule of X</span>
 </div>
+</div>
+
+<div class="panel" style="grid-column:2/4">
+<div class="panel-head"><span class="panel-dot" style="background:#a855f7"></span>Data Sources</div>
+<div class="src-tags">
+<span class="stag">IdeaProof.io <small>63 pages</small></span>
+<span class="stag">Carta 2025</span>
+<span class="stag">Bessemer Cloud 100</span>
+<span class="stag">a16z Growth Guide</span>
+<span class="stag">YC Startup School</span>
+<span class="stag">Sequoia Arc PMF</span>
+<span class="stag">SaaStr</span>
+<span class="stag">Lenny's Newsletter</span>
+<span class="stag">First Page Sage</span>
+<span class="stag">First Round Review</span>
+<span class="stag">OpenView SaaS</span>
 </div>
 </div>
 
 </div>
 <div class="p2-footer">
 <span>MIT License / <a href="https://github.com/sacredvoid">sacredvoid</a></span>
+<span style="color:#3f3f46">v3.0</span>
 <span>Powered by <a href="https://claude.ai/code">Claude Code</a></span>
 </div>
 </div>
