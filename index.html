@@ -53,12 +53,12 @@ canvas#bg{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0}
 
 /* ===== PAGE 2: DASHBOARD ===== */
 .p2{z-index:1;position:relative}
-.p2-grid{max-width:1200px;margin:0 auto;padding:20px 32px 48px;display:grid;grid-template-columns:2fr 1fr;gap:12px;height:calc(100vh - 48px)}
+.p2-grid{max-width:1200px;margin:0 auto;padding:20px 32px 48px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;height:calc(100vh - 48px);grid-template-rows:auto 1fr auto}
 
 /* Glass panels */
-.panel{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:16px 20px;overflow:hidden;transition:border-color 0.3s}
-.panel:hover{border-color:rgba(255,255,255,0.12)}
-.panel-head{font-size:0.65rem;text-transform:uppercase;letter-spacing:0.15em;color:#71717a;font-weight:600;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.panel{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:16px 20px;overflow:hidden;transition:border-color 0.3s;backdrop-filter:blur(8px)}
+.panel:hover{border-color:rgba(255,255,255,0.16)}
+.panel-head{font-size:0.65rem;text-transform:uppercase;letter-spacing:0.15em;color:#a1a1aa;font-weight:600;margin-bottom:12px;display:flex;align-items:center;gap:8px}
 .panel-dot{width:7px;height:7px;border-radius:50%;display:inline-block}
 
 /* Command chips */
@@ -74,8 +74,8 @@ canvas#bg{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0}
 
 /* Table */
 .tbl{width:100%;border-collapse:collapse;font-size:0.75rem}
-.tbl th{text-align:left;padding:6px 12px;font-size:0.6rem;text-transform:uppercase;letter-spacing:0.08em;color:#52525b;border-bottom:1px solid rgba(255,255,255,0.06);font-weight:600}
-.tbl td{padding:5px 12px;color:#71717a;border-bottom:1px solid rgba(255,255,255,0.02)}
+.tbl th{text-align:left;padding:6px 12px;font-size:0.6rem;text-transform:uppercase;letter-spacing:0.08em;color:#a1a1aa;border-bottom:1px solid rgba(255,255,255,0.08);font-weight:600}
+.tbl td{padding:5px 12px;color:#d4d4d8;border-bottom:1px solid rgba(255,255,255,0.03)}
 .tbl tr:hover td{color:#e4e4e7}
 .pill{font-size:0.65rem;padding:2px 8px;border-radius:100px;font-weight:600}
 .pill.g{background:rgba(74,222,128,0.1);color:#4ade80}
@@ -86,12 +86,12 @@ canvas#bg{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0}
 .cap-list{display:flex;flex-direction:column;gap:10px}
 .cap{position:relative}
 .cap-bar{height:3px;border-radius:2px;display:block;margin-bottom:4px;opacity:0.6}
-.cap-name{font-size:0.78rem;font-weight:600;display:block}
-.cap-detail{font-size:0.62rem;color:#52525b}
+.cap-name{font-size:0.78rem;font-weight:600;display:block;color:#e4e4e7}
+.cap-detail{font-size:0.62rem;color:#a1a1aa}
 
 /* Calculator pills */
 .calc-pills{display:flex;flex-wrap:wrap;gap:5px}
-.cpill{font-size:0.7rem;padding:4px 10px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:6px;color:#a1a1aa;transition:all 0.2s}
+.cpill{font-size:0.7rem;padding:4px 10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;color:#d4d4d8;transition:all 0.2s}
 .cpill:hover{border-color:rgba(56,189,248,0.3);color:#e4e4e7}
 .cpill.hl{border-color:rgba(56,189,248,0.2);color:#38bdf8;background:rgba(56,189,248,0.05)}
 
@@ -167,6 +167,7 @@ scroll
 <!-- TOP ROW: 3 glass panels -->
 <div class="panel" style="grid-column:1/3">
 <div class="panel-head"><span class="panel-dot" style="background:#818cf8"></span>19 Commands</div>
+
 <div class="cmd-flow">
 <span class="chip">validate</span><span class="chip">score</span><span class="chip">calc</span><span class="chip">spreadsheet</span><span class="chip">pitch-deck</span><span class="chip">presentation</span><span class="chip">compete</span><span class="chip">market-size</span><span class="chip">lean-canvas</span><span class="chip">gtm</span><span class="chip">fundraise</span><span class="chip">board-update</span><span class="chip">okrs</span><span class="chip">metrics</span><span class="chip">persona</span><span class="chip">interview</span><span class="chip">hiring</span><span class="chip">legal</span><span class="chip">decision</span>
 </div>
@@ -184,6 +185,7 @@ scroll
 <!-- MIDDLE ROW: benchmarks + capabilities -->
 <div class="panel" style="grid-column:1/3">
 <div class="panel-head"><span class="panel-dot" style="background:#f472b6"></span>Industry Benchmarks</div>
+
 <table class="tbl">
 <tr><th>Industry</th><th>Success</th><th>CAC</th><th>LTV</th><th>PMF</th></tr>
 <tr><td>SaaS B2B</td><td><span class="pill g">62%</span></td><td>$200-500</td><td>$1.5-5K</td><td>10-14mo</td></tr>
@@ -208,7 +210,7 @@ scroll
 </div>
 
 <!-- BOTTOM ROW: calculators + sources -->
-<div class="panel" style="grid-column:1/2">
+<div class="panel">
 <div class="panel-head"><span class="panel-dot" style="background:#38bdf8"></span>14 Calculators</div>
 <div class="calc-pills">
 <span class="cpill">ROI</span><span class="cpill">TAM/SAM/SOM</span><span class="cpill">Startup Costs</span><span class="cpill">Funding</span><span class="cpill">Break-Even</span><span class="cpill">Runway</span><span class="cpill">Valuation</span><span class="cpill">CAC</span><span class="cpill">LTV</span><span class="cpill">Equity</span><span class="cpill hl">Magic Number</span><span class="cpill hl">Burn Multiple</span><span class="cpill hl">Quick Ratio</span><span class="cpill hl">Rule of X</span>
@@ -217,6 +219,7 @@ scroll
 
 <div class="panel" style="grid-column:2/4">
 <div class="panel-head"><span class="panel-dot" style="background:#a855f7"></span>Data Sources</div>
+
 <div class="src-tags">
 <span class="stag">IdeaProof.io <small>63 pages</small></span>
 <span class="stag">Carta 2025</span>
