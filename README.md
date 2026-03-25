@@ -25,20 +25,20 @@ Not generic advice. Real formulas, real benchmarks (updated March 2026 from Cart
 
 ## Quick Start
 
+**Option 1: Claude Code Plugin (recommended)**
+```
+/plugin marketplace add sacredvoid/ceo-assistant
+```
+
+**Option 2: SkillKit**
 ```bash
-# Clone the repo
+npx skillkit install sacredvoid/ceo-assistant
+```
+
+**Option 3: Manual**
+```bash
 git clone https://github.com/sacredvoid/ceo-assistant.git
-
-# Copy commands to your Claude Code commands directory
 cp ceo-assistant/commands/*.md ~/.claude/commands/
-
-# Copy reference docs (commands reference these via @ceo-assistant/)
-mkdir -p ~/ceo-assistant
-cp -r ceo-assistant/docs ~/ceo-assistant/
-cp ceo-assistant/SKILL.md ~/ceo-assistant/
-
-# Initialize metrics tracking
-echo '{"company":null,"industry":null,"snapshots":[]}' > ~/.claude/ceo-metrics.json
 ```
 
 Then type `/ceo-validate` in Claude Code to validate your first idea.

@@ -1,0 +1,15 @@
+{
+  "name": "ceo-assistant",
+  "version": "3.0.0",
+  "description": "AI chief of staff for startup founders. 19 commands for idea validation, financial modeling, pitch decks, competitive analysis, and CEO operations.",
+  "author": {
+    "name": "sacredvoid",
+    "url": "https://github.com/sacredvoid"
+  },
+  "homepage": "https://sacredvoid.github.io/ceo-assistant",
+  "repository": "https://github.com/sacredvoid/ceo-assistant",
+  "license": "MIT",
+  "keywords": ["startup", "ceo", "founder", "validation", "pitch-deck", "financial-modeling", "saas", "business"],
+  "commands": "./commands/",
+  "skills": "./skills/"
+}

@@ -1,0 +1,26 @@
+{
+  "name": "ceo-assistant",
+  "owner": {
+    "name": "sacredvoid",
+    "email": "sam@samanvya.dev"
+  },
+  "metadata": {
+    "description": "AI chief of staff for startup founders",
+    "version": "3.0.0"
+  },
+  "plugins": [
+    {
+      "name": "ceo-assistant",
+      "source": "./",
+      "description": "19 commands for idea validation, financial modeling, pitch decks, competitive analysis, fundraising, hiring, legal, OKRs, metrics tracking, and decision frameworks. 60K+ words of reference docs from YC, Sequoia, Bessemer, a16z.",
+      "version": "3.0.0",
+      "author": { "name": "sacredvoid" },
+      "homepage": "https://sacredvoid.github.io/ceo-assistant",
+      "repository": "https://github.com/sacredvoid/ceo-assistant",
+      "license": "MIT",
+      "keywords": ["startup", "ceo", "founder", "validation", "pitch-deck", "financial-modeling"],
+      "category": "business",
+      "tags": ["startup", "founder", "ceo", "validation", "financial-modeling", "pitch-deck", "saas", "competitive-analysis"]
+    }
+  ]
+}
