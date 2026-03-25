@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CEO Assistant - Your AI Chief of Staff</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0f1c;--card:rgba(255,255,255,0.05);--card-border:rgba(255,255,255,0.1);--accent:#3b82f6;--accent2:#8b5cf6;--text:#e2e8f0;--text-dim:#94a3b8;--glow:0 0 40px rgba(59,130,246,0.15)}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+a{color:var(--accent);text-decoration:none}
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+
+/* Hero */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;background:linear-gradient(180deg,#0a0f1c 0%,#111827 50%,#0a0f1c 100%)}
+.hero::before{content:'';position:absolute;top:20%;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(59,130,246,0.08) 0%,transparent 70%);border-radius:50%}
+.hero-content{position:relative;z-index:1}
+.hero h1{font-size:clamp(2.5rem,6vw,4.5rem);font-weight:800;letter-spacing:-0.03em;margin-bottom:16px;background:linear-gradient(135deg,#fff 0%,#94a3b8 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero .tagline{font-size:clamp(1rem,2vw,1.25rem);color:var(--text-dim);max-width:600px;margin:0 auto 40px;font-weight:300}
+.stats{display:flex;gap:32px;justify-content:center;flex-wrap:wrap;margin-bottom:48px}
+.stat{text-align:center}
+.stat-num{font-size:2rem;font-weight:700;color:var(--accent)}
+.stat-label{font-size:0.75rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.1em}
+.cta{display:inline-block;padding:14px 36px;background:var(--accent);color:#fff;border-radius:8px;font-weight:600;font-size:1rem;transition:all 0.3s}
+.cta:hover{background:#2563eb;box-shadow:0 0 30px rgba(59,130,246,0.4)}
+
+/* Sections */
+section{padding:100px 0}
+.section-title{font-size:2rem;font-weight:700;text-align:center;margin-bottom:12px}
+.section-sub{text-align:center;color:var(--text-dim);margin-bottom:60px;max-width:600px;margin-left:auto;margin-right:auto}
+
+/* Feature Cards */
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.card{background:var(--card);border:1px solid var(--card-border);border-radius:16px;padding:32px;backdrop-filter:blur(10px);transition:all 0.3s}
+.card:hover{border-color:var(--accent);box-shadow:var(--glow);transform:translateY(-4px)}
+.card-icon{width:48px;height:48px;background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:16px;color:#fff}
+.card h3{font-size:1.1rem;font-weight:600;margin-bottom:8px}
+.card p{color:var(--text-dim);font-size:0.9rem}
+
+/* Commands Grid */
+.cmd-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.cmd{background:var(--card);border:1px solid var(--card-border);border-radius:10px;padding:16px;font-size:0.85rem}
+.cmd code{color:var(--accent);font-weight:600;font-size:0.9rem}
+.cmd span{display:block;color:var(--text-dim);margin-top:4px;font-size:0.8rem}
+
+/* Industry Table */
+table{width:100%;border-collapse:collapse;margin-top:20px}
+th{text-align:left;padding:12px 16px;border-bottom:2px solid var(--card-border);color:var(--accent);font-size:0.8rem;text-transform:uppercase;letter-spacing:0.05em}
+td{padding:10px 16px;border-bottom:1px solid var(--card-border);font-size:0.9rem;color:var(--text-dim)}
+tr:hover td{color:var(--text)}
+
+/* Install */
+.install-box{background:var(--card);border:1px solid var(--card-border);border-radius:16px;padding:40px;max-width:700px;margin:0 auto}
+.install-box pre{background:#111827;padding:20px;border-radius:8px;overflow-x:auto;font-size:0.85rem;line-height:1.8;color:#e2e8f0}
+.install-box code{color:var(--accent)}
+
+/* Steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:40px}
+.step{text-align:center}
+.step-num{width:48px;height:48px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.2rem;margin:0 auto 16px}
+.step h4{margin-bottom:8px}
+.step p{color:var(--text-dim);font-size:0.85rem}
+
+/* Footer */
+footer{text-align:center;padding:60px 0;color:var(--text-dim);font-size:0.85rem;border-top:1px solid var(--card-border)}
+
+/* Built With */
+.built-stats{display:flex;gap:40px;justify-content:center;flex-wrap:wrap;margin-top:40px}
+.built-stat{text-align:center}
+.built-stat strong{display:block;font-size:1.5rem;color:var(--text)}
+
+@media(max-width:768px){
+.stats{gap:16px}
+.stat-num{font-size:1.5rem}
+.steps{grid-template-columns:1fr}
+.cmd-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+<div class="hero-content">
+<h1>CEO Assistant</h1>
+<p class="tagline">Your AI chief of staff for building and running a startup. Real frameworks. Real benchmarks. Real workflows.</p>
+<div class="stats">
+<div class="stat"><div class="stat-num">19</div><div class="stat-label">Commands</div></div>
+<div class="stat"><div class="stat-num">14</div><div class="stat-label">Calculators</div></div>
+<div class="stat"><div class="stat-num">15</div><div class="stat-label">Templates</div></div>
+<div class="stat"><div class="stat-num">13</div><div class="stat-label">Industries</div></div>
+<div class="stat"><div class="stat-num">12</div><div class="stat-label">Decision Frameworks</div></div>
+</div>
+<a href="#install" class="cta">Get Started</a>
+</div>
+</section>
+
+<section>
+<div class="container">
+<h2 class="section-title">Capabilities</h2>
+<p class="section-sub">Everything a startup CEO needs, encoded into Claude Code workflows with live research and real data.</p>
+<div class="features">
+<div class="card"><div class="card-icon">V</div><h3>Idea Validation</h3><p>15-criteria scoring rubric with parallel research agents. Tar pit detection. Industry-specific benchmarks. GO/NO-GO recommendation.</p></div>
+<div class="card"><div class="card-icon">$</div><h3>Financial Modeling</h3><p>14 calculators: ROI, CAC, LTV, runway, valuation, burn multiple, Rule of X. Generates .xlsx spreadsheets.</p></div>
+<div class="card"><div class="card-icon">P</div><h3>Pitch Deck Generation</h3><p>Sequoia 12-slide format with live competitor research. Quality-checked against 20 common pitch mistakes.</p></div>
+<div class="card"><div class="card-icon">C</div><h3>Competitive Intelligence</h3><p>Live web scraping of competitor websites, pricing, funding, reviews. Feature matrix and positioning map.</p></div>
+<div class="card"><div class="card-icon">O</div><h3>CEO Operating System</h3><p>EOS L10, OKRs, Rocks, weekly cadences, 1-on-1 templates, board prep, decision logs. Sacks' Cadence.</p></div>
+<div class="card"><div class="card-icon">M</div><h3>Metrics Tracking</h3><p>Persistent JSON store. Monthly snapshots with trend analysis. Alerts for runway, churn, and unit economics.</p></div>
+</div>
+</div>
+</section>
+
+<section style="background:#111827">
+<div class="container">
+<h2 class="section-title">19 Commands</h2>
+<p class="section-sub">Type any of these in Claude Code and get structured, actionable output.</p>
+<div class="cmd-grid">
+<div class="cmd"><code>/ceo-validate</code><span>Full validation with live research</span></div>
+<div class="cmd"><code>/ceo-score</code><span>Quick 15-criteria scoring</span></div>
+<div class="cmd"><code>/ceo-calc</code><span>14 financial calculators</span></div>
+<div class="cmd"><code>/ceo-spreadsheet</code><span>Generate .xlsx models</span></div>
+<div class="cmd"><code>/ceo-pitch-deck</code><span>Sequoia-format deck</span></div>
+<div class="cmd"><code>/ceo-presentation</code><span>HTML presentations</span></div>
+<div class="cmd"><code>/ceo-compete</code><span>Competitive analysis</span></div>
+<div class="cmd"><code>/ceo-market-size</code><span>TAM/SAM/SOM research</span></div>
+<div class="cmd"><code>/ceo-lean-canvas</code><span>1-page business plan</span></div>
+<div class="cmd"><code>/ceo-gtm</code><span>Go-to-market strategy</span></div>
+<div class="cmd"><code>/ceo-fundraise</code><span>Round sizing + valuation</span></div>
+<div class="cmd"><code>/ceo-board-update</code><span>Investor update email</span></div>
+<div class="cmd"><code>/ceo-okrs</code><span>Quarterly OKRs + Rocks</span></div>
+<div class="cmd"><code>/ceo-metrics</code><span>Track metrics over time</span></div>
+<div class="cmd"><code>/ceo-persona</code><span>Customer personas</span></div>
+<div class="cmd"><code>/ceo-interview</code><span>Mom Test scripts</span></div>
+<div class="cmd"><code>/ceo-hiring</code><span>Hiring plans + JDs</span></div>
+<div class="cmd"><code>/ceo-legal</code><span>Legal checklists</span></div>
+<div class="cmd"><code>/ceo-decision</code><span>Decision frameworks</span></div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="container">
+<h2 class="section-title">Industry Benchmarks</h2>
+<p class="section-sub">Real data for 13 verticals. Updated March 2026 from Carta, Bessemer, a16z, and IdeaProof.</p>
+<div style="overflow-x:auto">
+<table>
+<tr><th>Industry</th><th>Success Rate</th><th>CAC Range</th><th>LTV Range</th><th>Time to PMF</th></tr>
+<tr><td>SaaS B2B</td><td>62%</td><td>$200-500</td><td>$1.5-5K</td><td>10-14mo</td></tr>
+<tr><td>FinTech</td><td>58%</td><td>$50-200</td><td>$500-2K</td><td>12-18mo</td></tr>
+<tr><td>HealthTech</td><td>55%</td><td>$100-400</td><td>$1-5K</td><td>14-24mo</td></tr>
+<tr><td>EdTech</td><td>52%</td><td>$50-150</td><td>$300-1.5K</td><td>10-16mo</td></tr>
+<tr><td>E-commerce</td><td>48%</td><td>$30-100</td><td>$150-500</td><td>6-12mo</td></tr>
+<tr><td>AI/ML</td><td>~45%</td><td>$50-500</td><td>$500-5K</td><td>8-18mo</td></tr>
+<tr><td>Marketplace</td><td>42%</td><td>$20-80</td><td>$200-800</td><td>12-24mo</td></tr>
+<tr><td>FoodTech</td><td>38%</td><td>$15-50</td><td>$100-400</td><td>8-14mo</td></tr>
+<tr><td>Mobile App</td><td>35%</td><td>$2-10</td><td>$10-50</td><td>8-16mo</td></tr>
+</table>
+</div>
+</div>
+</section>
+
+<section id="install" style="background:#111827">
+<div class="container">
+<h2 class="section-title">Get Started</h2>
+<p class="section-sub">Install in under a minute. Works with Claude Code CLI, desktop app, and IDE extensions.</p>
+<div class="steps">
+<div class="step"><div class="step-num">1</div><h4>Clone</h4><p>git clone the repo to your machine</p></div>
+<div class="step"><div class="step-num">2</div><h4>Copy</h4><p>Copy commands to ~/.claude/commands/</p></div>
+<div class="step"><div class="step-num">3</div><h4>Use</h4><p>Type /ceo-validate in Claude Code</p></div>
+</div>
+<div class="install-box" style="margin-top:48px">
+<pre><code>git clone https://github.com/sacredvoid/ceo-assistant.git
+cp ceo-assistant/commands/*.md ~/.claude/commands/
+mkdir -p ~/ceo-assistant && cp -r ceo-assistant/docs ~/ceo-assistant/</code></pre>
+</div>
+</div>
+</section>
+
+<section>
+<div class="container">
+<h2 class="section-title">How It Was Built</h2>
+<p class="section-sub">One Claude Code session. ~50 parallel agents. 200+ pages scraped.</p>
+<div class="built-stats">
+<div class="built-stat"><strong>~50</strong>Agents deployed</div>
+<div class="built-stat"><strong>200+</strong>Pages scraped</div>
+<div class="built-stat"><strong>140+</strong>Web searches</div>
+<div class="built-stat"><strong>60K+</strong>Words generated</div>
+<div class="built-stat"><strong>1</strong>Session</div>
+</div>
+</div>
+</section>
+
+<footer>
+<div class="container">
+<p>MIT License | Built by <a href="https://github.com/sacredvoid">sacredvoid</a> | Powered by <a href="https://claude.ai/code">Claude Code</a></p>
+</div>
+</footer>
+
+</body>
+</html>
