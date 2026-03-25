@@ -7,14 +7,9 @@
 **Your AI chief of staff for building and running a startup.**<br>
 **19 commands. 60K+ words of frameworks. 14 calculators. 13 industries. Zero bullshit.**
 
-[![Commands](https://img.shields.io/badge/commands-19-blue?style=flat-square)](https://github.com/sacredvoid/ceo-assistant)
-[![Calculators](https://img.shields.io/badge/calculators-14-green?style=flat-square)](docs/financial-calculators.md)
-[![Templates](https://img.shields.io/badge/templates-15-orange?style=flat-square)](docs/business-templates.md)
-[![Industries](https://img.shields.io/badge/industries-13-purple?style=flat-square)](docs/industry-benchmarks.md)
-[![Frameworks](https://img.shields.io/badge/decision_frameworks-12-red?style=flat-square)](docs/decision-frameworks.md)
-[![Words](https://img.shields.io/badge/words-60K+-brightgreen?style=flat-square)](#whats-inside)
-[![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
-[![Claude Code](https://img.shields.io/badge/Claude_Code-compatible-blueviolet?style=flat-square)](https://claude.ai/code)
+[![Built with Claude Code](https://img.shields.io/badge/Built%20with-Claude%20Code-7c3aed?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0id2hpdGUiPjxwYXRoIGQ9Ik0xMiAyQzYuNDggMiAyIDYuNDggMiAxMnM0LjQ4IDEwIDEwIDEwIDEwLTQuNDggMTAtMTBTMTcuNTIgMiAxMiAyem0wIDE4Yy00LjQyIDAtOC0zLjU4LTgtOHMzLjU4LTggOC04IDggMy41OCA4IDgtMy41OCA4LTggOHoiLz48L3N2Zz4=)](https://claude.ai/code)
+[![MIT License](https://img.shields.io/badge/License-MIT-22c55e?style=for-the-badge)](LICENSE)
+[![GitHub Pages](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-0ea5e9?style=for-the-badge&logo=github)](https://sacredvoid.github.io/ceo-assistant)
 
 </div>
 
