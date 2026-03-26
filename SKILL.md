@@ -7,13 +7,29 @@ description: Use when working on any startup or business task - idea validation,
 
 Your AI chief of staff for building and running a startup. Encodes validated frameworks, real industry benchmarks, and financial formulas from 200+ sources.
 
-## Slash Commands (18 active)
+## Slash Commands (28 active)
+
+### The Minimalist Entrepreneur Playbook
+
+| Command | What it does |
+|---|---|
+| `/ceo-community` | Find your community - the foundation of a minimalist business |
+| `/ceo-values` | Define company values and culture before hiring |
+| `/ceo-processize` | Turn an idea into a manual-first process you deliver today |
+| `/ceo-mvp` | Build your MVP: manual, processized, then productized |
+| `/ceo-first-customers` | Strategy for selling to your first 100 customers |
+| `/ceo-pricing` | Pricing strategy: cost-based vs value-based, zero price effect |
+| `/ceo-marketing` | Content marketing plan: educate, inspire, entertain |
+| `/ceo-grow` | Sustainable growth - profitability as a superpower |
+| `/ceo-review` | Gut-check any decision against 8 minimalist principles |
+
+### The Analytical Toolkit
 
 | Command | What it does |
 |---|---|
 | `/ceo-validate` | Full validation with parallel research agents + 15-criteria scoring |
 | `/ceo-score` | Quick viability scoring (15-criteria weighted rubric) |
-| `/ceo-calc` | 10 financial calculators with formulas and benchmarks |
+| `/ceo-calc` | 14 financial calculators with formulas and benchmarks |
 | `/ceo-spreadsheet` | Generate .xlsx financial models |
 | `/ceo-pitch-deck` | Sequoia-format pitch deck with live competitor/market research |
 | `/ceo-presentation` | Cinematic HTML presentations via presentation-chef |
